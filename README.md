@@ -1,7 +1,7 @@
 # uint2str
 
 Package provides ability to convert uint32 to string by given alphabet(use default as in example, or setup your own).
-Useful for url shorteners similar situation, in other words when you need possibility covert number to string and back.
+Useful when you need possibility to convert number to string and back(url shortener, custom hash).
 
 # Advantages
 
