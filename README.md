@@ -8,7 +8,7 @@ Useful for url shorteners similar situation, in other words when you need possib
 * Tiny
 * Fast
 * UTF-8 is fully supported
-* Well tested(100% code coverage), has benchmarks
+* Well tested([![GoCover](http://gocover.io/_badge/github.com/MaxBaldin/uint2str)](http://gocover.io/github.com/MaxBaldin/uint2str)) and benchmarked
 * Has no dependencies
 
 # Installation
