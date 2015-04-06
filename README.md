@@ -11,6 +11,12 @@ Useful for url shorteners similar situation, in other words when you need possib
 * Well tested(100% code coverage), has benchmarks
 * Has no dependencies
 
+# Installation
+
+```
+go get github.com/maxbaldin/uint2str
+```
+
 # Usage
 
 Basic usage:
@@ -41,11 +47,9 @@ Output for this example:
 2015/04/06 23:11:05 1234
 ```
 
-# Installation
+# Documentation
 
-```
-go get github.com/maxbaldin/uint2str
-```
+[![GoDoc](https://godoc.org/github.com/MaxBaldin/uint2str?status.svg)](https://godoc.org/github.com/MaxBaldin/uint2str)
 
 # Tests and performance
 
