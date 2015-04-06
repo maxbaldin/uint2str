@@ -1,7 +1,7 @@
 # uint2str
 
 Package provides ability to convert uint32 to string by given alphabet(use default as in example, or setup your own).
-Useful when you need possibility to convert number to string and back(url shortener, custom hash).
+Useful when you need possibility to convert number to string and back(url shortener for example).
 
 # Advantages
 
@@ -9,7 +9,7 @@ Useful when you need possibility to convert number to string and back(url shorte
 * Fast
 * UTF-8 is fully supported
 * Well tested([![GoCover](http://gocover.io/_badge/github.com/MaxBaldin/uint2str)](http://gocover.io/github.com/MaxBaldin/uint2str)) and benchmarked
-* Has no dependencies
+* Has no 3rd party dependencies
 
 # Installation
 
