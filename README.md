@@ -19,7 +19,7 @@ go get github.com/maxbaldin/uint2str
 
 # Usage
 
-Basic usage:
+## Basic
 ```go
 package main
 
@@ -45,6 +45,37 @@ Output for this example:
 ```
 2015/04/06 23:11:05 t4
 2015/04/06 23:11:05 1234
+```
+
+## Big numbers
+
+If uint32(uint) is not enough four you, use uint64 codec:
+
+```go
+package main
+
+import (
+    "log"
+    "github.com/maxbaldin/uint2str"
+)
+
+func main() {
+    codec := uint2str.NewUint64Codec(uint2str.ALPHABET)
+    encoded := codec.Encode(100000000000)
+    log.Println(encoded)
+    decoded, err := codec.Decode(encoded)
+    if err != nil {
+        log.Fatalf("Unable decode integer from string `%s`. Error: %s", encoded, err.Error())
+    }
+    log.Println(decoded)
+}
+```
+
+Output for this example:
+
+```
+2015/04/06 23:11:05 bVjJYjY
+2015/04/06 23:11:05 100000000000
 ```
 
 # Documentation
