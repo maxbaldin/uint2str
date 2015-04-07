@@ -5,21 +5,20 @@ import (
 	"testing"
 )
 
-var Uint32Instance = NewUint32Codec(ALPHABET)
+var Uint64Instance = NewUint64Codec(ALPHABET)
 
-var uint32EncDecTestData = map[uint32]string{
+var uint64EncDecTestData = map[uint64]string{
 	0:          "a",
 	100:        "bM",
 	3466876560: "dWMO72",
 	4294967295: "eQPpmd",
 }
 
-func TestUint32EncodeDecodeEquals(t *testing.T) {
-	iterationsCnt := 100500
-	for i := 0; i < iterationsCnt; i++ {
-		num := uint32(i)
-		encoded := Uint32Instance.Encode(num)
-		decoded, err := Uint32Instance.Decode(encoded)
+func TestUint64EncodeDecodeEquals(t *testing.T) {
+	for i := uint64(100000000000); i < 100000100500; i++ {
+		num := uint64(i)
+		encoded := Uint64Instance.Encode(num)
+		decoded, err := Uint64Instance.Decode(encoded)
 		if err != nil {
 			t.Error(err)
 		}
@@ -29,10 +28,10 @@ func TestUint32EncodeDecodeEquals(t *testing.T) {
 	}
 }
 
-func TestUint32CustomAlphabet(t *testing.T) {
+func TestUint64CustomAlphabet(t *testing.T) {
 	alphabet := "abc"
-	codec := NewUint32Codec(alphabet)
-	num := uint32(4294967295)
+	codec := NewUint64Codec(alphabet)
+	num := uint64(4294967295)
 	expectedEncoded := "bacaacacccabccbbbbcba"
 	encoded := codec.Encode(num)
 	if encoded != expectedEncoded {
@@ -47,18 +46,18 @@ func TestUint32CustomAlphabet(t *testing.T) {
 	}
 }
 
-func TestUint32Encode(t *testing.T) {
-	for num, expected := range uint32EncDecTestData {
-		encoded := Uint32Instance.Encode(num)
+func TestUint64Encode(t *testing.T) {
+	for num, expected := range uint64EncDecTestData {
+		encoded := Uint64Instance.Encode(num)
 		if encoded != expected {
 			t.Errorf("Error while encoding %d", num)
 		}
 	}
 }
 
-func TestUint32Decode(t *testing.T) {
-	for expected, encoded := range uint32EncDecTestData {
-		decoded, err := Uint32Instance.Decode(encoded)
+func TestUint64Decode(t *testing.T) {
+	for expected, encoded := range uint64EncDecTestData {
+		decoded, err := Uint64Instance.Decode(encoded)
 		if err != nil {
 			t.Error(err)
 		}
@@ -68,9 +67,9 @@ func TestUint32Decode(t *testing.T) {
 	}
 }
 
-func TestUint32DecodeError(t *testing.T) {
+func TestUint64DecodeError(t *testing.T) {
 	invalidCharacter := "-"
-	_, err := Uint32Instance.Decode(invalidCharacter)
+	_, err := Uint64Instance.Decode(invalidCharacter)
 	if err == nil {
 		t.Error("Decode must produce error")
 	}
@@ -80,8 +79,8 @@ func TestUint32DecodeError(t *testing.T) {
 	}
 }
 
-func BenchmarkUint32Encode(b *testing.B) {
+func BenchmarkUint64Encode(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		Uint32Instance.Encode(uint32(n))
+		Uint64Instance.Encode(uint64(n))
 	}
 }
