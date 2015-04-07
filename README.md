@@ -49,7 +49,7 @@ Output for this example:
 
 ## Big numbers
 
-If uint32(uint) is not enough four you, use uint64 codec:
+If uint32(uint) is not enough for your purpose, use uint64 codec:
 
 ```go
 package main
