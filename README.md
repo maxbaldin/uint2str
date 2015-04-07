@@ -1,5 +1,9 @@
 # uint2str
 
+[![Build Status](https://travis-ci.org/maxbaldin/uint2str.png?branch=master)](https://travis-ci.org/maxbaldin/uint2str)
+[![GoCover](http://gocover.io/_badge/github.com/MaxBaldin/uint2str)](http://gocover.io/github.com/MaxBaldin/uint2str)
+[![GoDoc](https://godoc.org/github.com/MaxBaldin/uint2str?status.svg)](https://godoc.org/github.com/MaxBaldin/uint2str)
+
 Package provides ability to convert uint32 to string by given alphabet(use default as in example, or setup your own).
 Useful when you need possibility to convert number to string and back(url shortener for example).
 
@@ -8,7 +12,7 @@ Useful when you need possibility to convert number to string and back(url shorte
 * Tiny
 * Fast
 * UTF-8 is fully supported
-* Well tested([![GoCover](http://gocover.io/_badge/github.com/MaxBaldin/uint2str)](http://gocover.io/github.com/MaxBaldin/uint2str)) and benchmarked
+* Well tested and benchmarked
 * Has no 3rd party dependencies
 
 # Installation
