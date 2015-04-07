@@ -8,7 +8,7 @@ import (
 var BaseInstance = newBaseCodec(ALPHABET)
 
 func TestSetAlphabet(t *testing.T) {
-	alphabet := "?abc"
+	alphabet := "犬abc"
 	codec := newBaseCodec(alphabet)
 	if string(codec.getAlphabet()) != alphabet || !reflect.DeepEqual(codec.getAlphabet(), []rune(alphabet)) {
 		t.Error("Error while setting up alphabet")
