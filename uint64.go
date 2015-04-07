@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// Uint64Codec is basic implementation of Codec interface
+// Uint64Codec contains alphabet and methods to encode uint32 to string and decode back
 type Uint64Codec struct {
 	BaseCodec
 	alphabetMap map[rune]uint64
