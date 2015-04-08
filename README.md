@@ -1,6 +1,6 @@
 # uint2str
 
-Package provides ability to convert uint32 to string by given alphabet(use default as in example, or setup your own).
+Package provides ability to convert number to string by given alphabet(use default as in example, or setup your own).
 Useful when you need possibility to convert number to string and back(url shortener for example).
 
 # Advantages
@@ -20,63 +20,68 @@ go get github.com/maxbaldin/uint2str
 # Usage
 
 ## Basic
+
+### Encode
+
 ```go
 package main
 
 import (
-    "log"
-    "github.com/maxbaldin/uint2str"
+	"github.com/maxbaldin/uint2str"
+	"log"
 )
 
 func main() {
-    codec := uint2str.NewUint32Codec(uint2str.ALPHABET)
-    encoded := codec.Encode(1234)
-    log.Println(encoded)
-    decoded, err := codec.Decode(encoded)
-    if err != nil {
-        log.Fatalf("Unable decode integer from string `%s`. Error: %s", encoded, err.Error())
-    }
-    log.Println(decoded)
+	c := uint2str.NewCodec(uint2str.ALPHABET)
+
+	number := 100
+	encoded, err := c.Encode(number)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("%d -> %s", number, encoded)
 }
 ```
 
 Output for this example:
 
 ```
-2015/04/06 23:11:05 t4
-2015/04/06 23:11:05 1234
+100 -> bM
 ```
 
-## Big numbers
-
-If uint32(uint) is not enough for your purpose, use uint64 codec:
+### Decode
 
 ```go
 package main
 
 import (
-    "log"
-    "github.com/maxbaldin/uint2str"
+	"github.com/maxbaldin/uint2str"
+	"log"
 )
 
 func main() {
-    codec := uint2str.NewUint64Codec(uint2str.ALPHABET)
-    encoded := codec.Encode(100000000000)
-    log.Println(encoded)
-    decoded, err := codec.Decode(encoded)
-    if err != nil {
-        log.Fatalf("Unable decode integer from string `%s`. Error: %s", encoded, err.Error())
-    }
-    log.Println(decoded)
+	c := uint2str.NewCodec(uint2str.ALPHABET)
+
+	str := "bM"
+	var number int
+	err := c.Decode(str, &number)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("%s -> %d", str, number)
 }
+
 ```
 
 Output for this example:
 
 ```
-2015/04/06 23:11:05 bVjJYjY
-2015/04/06 23:11:05 100000000000
+bM -> 100
 ```
+
+### Supported types
+
+Both encode and decode: int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64
 
 # Documentation
 
