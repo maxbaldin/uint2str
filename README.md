@@ -1,7 +1,7 @@
 # uint2str
 
 Package provides ability to convert number to string by given alphabet(use default as in example, or setup your own).
-Useful when you need possibility to convert number to string and back(url shortener for example).
+Useful when you need to convert number to string and back(url shortener for example).
 
 # Advantages
 
